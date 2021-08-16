@@ -1,0 +1,1224 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Ibarra Real Nova','Crimson Text',Arial, Helvetica, sans-serif;
+}
+
+/* view-more的動畫 */
+@keyframes blink {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 75%;
+    }
+    100% {
+        width: 150%;
+    }
+}
+
+/* 上方區塊右下角的垂直線動畫 */
+@keyframes height {
+    0% {
+        height: 170px;
+    }
+    
+    100% {
+        height: 0;
+    }
+   
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ul,ol,p{
+    margin-bottom:0;
+}
+
+img{
+    max-width: 100%;
+}
+
+
+body{
+    background: url(./img/bg.png);
+    background-color: #fdfdfd;
+    
+}
+
+/* 上區塊右下角的線 */
+.aside-line{
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 1px;
+    background-color: rgba(0,0,0,.5);
+    /* infinite 重複  ease-in-out 緩慢地開始和前進 */
+    animation: height 2s infinite ease-in-out;
+}
+
+
+@media screen and (min-width:992px){
+    /* 大螢幕時位置稍微往下 */
+    .aside-line{
+    bottom: -5px;
+}
+}
+
+/* 上方區塊 */
+.area-official{
+    background: url(./img/bg.png);
+    background-color: #fdfdfd;
+    
+}
+
+header{
+    padding-bottom: 80px;
+}
+
+header .logo,
+header .hum-list .logo{
+    width: 142px;
+    height: 40px;
+    padding: 20px 0 0 5px;
+}
+
+@media screen and (min-width:992px){
+    .anoim-area{
+    background: url(./img/bg.png);
+    background-color: #efefef;
+    padding-bottom: 300px;
+}
+    header .logo{
+        position: fixed;
+        top: 35px;
+        right: 70px;
+        width: 180px;
+        height: 54px;
+    }
+
+}
+
+/* 漢堡選單 */
+header .hum{
+    /* fixed定位 */
+    position:fixed;
+    top: 10px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index:100;
+}
+
+/* 漢堡選單用兩條div製作 */
+header .top-line{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    width: 44px;
+    height: 1px;
+}
+
+header .bottom-line{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    width: 44px;
+    height: 1px;
+}
+
+/* 漢堡選單條 */
+/* 開啟時會啟動body overflow hidden 把滑動條隱藏 讓畫面無法移動*/
+header .hum-list{
+    display:none;
+    /* fixed定位 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* 全螢幕 */
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center; 
+    background:url('./img/bg.png');
+    background-color: #e9e9e9;
+    
+    padding-top: 60px;
+    text-align: center;
+    z-index:20;
+}
+/* 漢堡條的中間區域 */
+header .hum-list .center-area{
+    position:relative;
+    margin-bottom: 40px;
+}
+
+header .hum-list .logo{
+    padding:  0;
+    margin: 30px auto;
+}
+
+/* 製作「」  用border*/
+header .hum-list .center-area::after{
+    content:'';
+    position: absolute;
+    top: 15px;
+    right: -40%;
+    width: 20px;
+    height: 30px;
+    border-top:1px solid rgba(0,0,0,.3);
+    border-right:1px solid rgba(0,0,0,.3);
+}
+
+/* 製作「」  用border*/
+header .hum-list .center-area::before{
+    content:'';
+    position: absolute;
+    bottom: -15px;
+    left: -40%;
+    width: 20px;
+    height: 30px;
+    border-bottom:1px solid rgba(0,0,0,.3);
+    border-left:1px solid rgba(0,0,0,.3);
+}
+
+header .hum-list .bottom-area .home{
+    margin-bottom: 10px;
+}
+
+header .hum-list .bottom-area .sns{
+    display: flex;
+    justify-content: center;
+}
+
+header .hum-list .bottom-area .sns p{
+    margin: 0 10px;
+}
+
+header .hum-list p{
+    padding-bottom: 10px;
+}
+
+header .hum-list p a{
+    color: #6a6a6a;
+}
+
+/* 上方大圖 */
+.portrait-pic{
+    margin-right: 30px;
+    margin-bottom: 150px;
+    margin-left:-15px;
+}
+
+@media screen and (min-width:992px){
+/* header .hum-list{
+    display:none;
+} */
+
+    /* 調整大圖位置 */
+    .portrait-pic{
+        padding: 3% 23% 0 0;
+        margin-left: -15px;
+        margin-bottom: 300px;
+    }
+
+}
+
+/* 桌機  navbar*/
+.navbar{
+    flex-direction: column;
+    position: fixed;
+    top: 150px;
+    right: 55px;
+    text-align: right;
+    z-index:100;    
+}
+
+ .navbar .top-area{
+    margin-bottom: 20px;
+}
+ .navbar .center-area{
+    margin-bottom: 20px;
+}
+ .navbar .bottom-area{
+    width: 100%;
+}
+
+ .navbar .sns{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+ .navbar .sns p{
+   margin-left:15px;
+}
+
+ .navbar p{
+    padding-bottom: 8px;
+}
+ .navbar p:hover a{
+    color:#ddc7c7
+}
+
+ .navbar p a{
+    color: #6a6a6a;
+    transition: .5s;
+}
+
+/* 輪播圖 */
+.carousel{
+    position:relative;
+    margin: 0 30px;
+    margin-bottom:130px;
+}
+
+/* 下層灰色方塊 */
+.carousel::after{
+    content:"";
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    background-color: rgba(239, 239, 239,1);
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+}
+
+.carousel-item{
+    z-index:10;
+}
+
+/* 按鈕的位置 */
+.carousel-indicators{
+    position:absolute;
+    bottom: -15%; 
+    left: -70%;
+}
+
+/* 按鈕的色彩樣式 */
+.carousel-indicators li{
+    height: 2px;
+    background-color: #ccc;
+}
+
+/* 桌機的上方大輪播圖 */
+.top-big-slick{
+    width: 60%;
+    margin-left:auto;
+}
+
+.news,
+.schedule{
+    position: relative;
+    padding: 45px 25px;
+    z-index: 10;
+    margin-bottom:80px;
+}
+
+/* 上層白色方塊 */
+.news::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index:-1;
+}
+
+/* 下層灰色方塊 */
+.news::before{
+    content:"";
+    position: absolute;
+    top: 5%;
+    left: -5%;
+    background-color: rgba(239, 239, 239,1);
+    width: 100%;
+    height: 100%;
+    z-index:-2;
+}
+
+/* 上層標題和view more */
+.news .top,
+.schedule .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 65px;
+}
+
+.news .top h2,
+.schedule .top h2{
+    font-size: 19px;
+}
+
+.news .top .view-more,
+.schedule .top .view-more{
+    position: relative;
+    font-size: 16px;
+}
+
+.news .top .view-more a,
+.schedule .top .view-more a
+{
+    color:#6a6a6a;
+}
+
+/* 製作view more下方的線 */
+.news .top .view-more::after,
+.schedule .top .view-more::after
+{
+    content:'';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 150%;
+    height: 1px;
+    background-color: #999;
+}
+
+/* 觸碰線時，啟動動畫 */
+.news .top .view-more:hover::after,
+.schedule .top .view-more:hover::after
+{
+    animation: blink .3s alternate ease-in-out;
+}
+
+
+.news .item,
+.schedule .item{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.news .item:hover a p,
+.schedule .item:hover a .right p{
+    color:#ddc7c7
+}
+
+/* 最後一個item不用下框線 */
+.news .item:last-child,
+.schedule .item:last-child{
+    border-bottom: none;
+}
+
+/* date區域包括類型，用flex水平對齊 */
+.news .item .date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.news .item .date .time{
+    position:relative;
+    color:#6a6a6a;
+}
+
+/* 紅點 */
+.news .item .date .time::before{
+    content:'';
+    position: absolute;
+    top: 5px;
+    left: -13px;
+    background-color:#dfbaba;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+
+.news .item .date .cate{
+    color:#6a6a6a;
+    margin-left:10px;
+    padding: 1px 3px;
+    background-color: rgba(204, 204, 204,.3);
+}
+.news .item .text p{
+    color:#6a6a6a;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.schedule{
+    position: relative;
+    margin-bottom: 150px;
+}
+
+/* 上層白色區塊 */
+.schedule::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index:-1;
+}
+
+/* 下層灰色區塊 */
+.schedule::before{
+    content:"";
+    position: absolute;
+    top: 5%;
+    right: calc(-5% + 4px);
+    background-color: rgba(239, 239, 239,1);
+    width: 100%;
+    height: 100%;
+    z-index:-2;
+}
+
+.schedule .item:first-child{
+    position: relative;
+}
+/* 紅點 */
+.schedule .item:first-child::before{
+    content:'';
+    position: absolute;
+    top: 35%;
+    left: -15px;
+    background-color: #dfbaba;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+}
+
+/* flex讓左右兩邊水平對齊 */
+.schedule .item a{
+    display: flex;
+    color:#6a6a6a;
+    font-size: 15px;
+}
+
+.schedule .item .left .m{
+    padding-left:5px;
+}
+
+/* 用padding推日期，讓它往右移 */
+.schedule .item .left .d{
+    position: relative;
+    font-size: 26px;
+    padding-left:25px
+}
+
+/* 日期的斜線 */
+.schedule .item .left .d::before{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #6a6a6a;
+    height: 1px;
+    width: 50px;
+    transform: rotate(125deg);
+}
+.schedule .item .left .y{
+    font-size: 12px;
+}
+.schedule .item .right{
+    margin-left:20px;
+}
+
+/* 類型的樣式 */
+.schedule .item .right .cate span{
+    color:#6a6a6a;
+    padding: 1px 8px;
+    background-color: rgba(204, 204, 204,.3);
+}
+.schedule .item .right .cate{
+    margin-bottom: 5px;
+}
+.schedule .item .right .text p{
+    transition: .5s;
+}
+
+
+
+@media screen and (min-width: 992px) {
+    /* 修改樣式 */
+    .news,
+    .schedule{
+    width: 80%;
+    padding: 70px 60px;
+    margin-bottom: 200px;
+}
+
+.news .top h2,
+.schedule .top h2{
+    font-size: 32px;
+}
+
+
+/* 下層灰色區塊 修改位置大小*/
+.news::before{
+    top: 10%;
+    width: 50%;
+}
+
+/* 往右對齊 */
+.schedule{
+    margin-left:auto;
+}
+
+/* 下層灰色區塊 */
+.schedule::before{
+    width: 50%;
+}
+
+.news .top,
+.schedule .top{
+    position: relative;
+}
+
+/* view-more位置修改 */
+.news .top .view-more,
+.schedule .top .view-more{
+    position: absolute;
+    top: 0;
+    right: -6%
+}
+
+.news .top .view-more a,
+.schedule .top .view-more a
+{
+    color:#6a6a6a;
+}
+
+/* 調整點的位置 */
+.news .item .date .time::before {
+    left: -15px;
+}
+
+/* 調整點的位置 */
+.schedule .item:first-child::before{
+    left: -20px;
+}
+
+}
+
+
+
+/* 下方區塊 */
+.area-fc{
+    /* 背景 */
+    background: url(./img/bg.png);
+    background-color: #efefef;
+    padding-bottom: 160px;
+}
+
+/* 讓logo和文字垂直排列並置中 */
+.anoim{
+    padding-top:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.anoim .logo{
+    width: 60%;
+    height: 60%;
+    margin-bottom: 30px;
+}
+
+/* 水平對齊 */
+.anoim .text{
+    display: flex;
+    position:relative;
+}
+
+/* 製作「」 */
+.anoim .text::before{
+    content:'';
+    position: absolute;
+    top: -8px;
+    right: -30px;
+    width: 7px;
+    height: 10px;
+    border-top:1px solid rgba(0,0,0,.3)555;
+    border-right:1px solid rgba(0,0,0,.3)555;
+}
+
+/* 製作「」 */
+.anoim .text::after{
+    content:'';
+    position: absolute;
+    bottom: -8px;
+    left: -30px;
+    width: 7px;
+    height: 10px;
+    border-bottom:1px solid rgba(0,0,0,.3);
+    border-left:1px solid rgba(0,0,0,.3);
+}
+
+.anoim a{
+   color:#6a6a6a;
+   font-size: 15px;
+   transition: .5s;
+}
+
+.anoim .text p:hover a {
+    color:#ddc7c7
+}
+
+/* login往右靠 */
+.anoim .text .login{
+    margin-left:30px;
+}
+
+@media screen and (min-width:992px) {
+    /* 改變logo大小 */
+    .anoim .logo{
+    width: 40%;
+    height: 40%;
+    margin-bottom: 50px;
+}
+/* 改變字大小 */
+.anoim a{
+   font-size: 16px;
+}
+
+}
+
+
+/* 三個區塊的主體 */
+.fc-news,
+.mail,
+.check{
+    position: relative;
+    padding: 70px 45px 70px 70px;
+    z-index: 10;
+    margin: 0  -15px 150px 15px;
+    background-color: #fff;
+}
+
+/* 製作「」  用border*/
+.fc-news::after,
+.mail::after,
+.check::after{
+    content:"";
+    position: absolute;
+    top: -25px;
+    right: 15px;
+    width: 30px;
+    height: 40px;
+    border-top:1px solid rgba(0,0,0,.3);
+    border-right:1px solid rgba(0,0,0,.3);
+   
+}
+
+/* 製作「」  用border*/
+.fc-news::before,
+.mail::before,
+.check::before{
+    content:"";
+    position: absolute;
+    bottom: -25px;
+    left: -15px;
+    width: 30px;
+    height: 40px;
+    border-bottom:1px solid rgba(0,0,0,.3);
+    border-left:1px solid rgba(0,0,0,.3);
+    
+}
+
+/* absolute並用rotate轉為垂直 */
+.fc-news .title{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    transform-origin: top left;
+    transform: rotate(90deg);
+    font-size: 19px;
+    color:#565656;
+}
+
+/* 讓底線不會延長 */
+.fc-news .bottom{
+    display: flex;
+}
+
+.fc-news .bottom h2{
+    font-size: 25px;
+}
+
+.fc-news .bottom .view-more,
+.movie .bottom .view-more,
+.mail .bottom .view-more,
+.check .bottom .view-more{
+    position: relative;
+}
+
+.fc-news .bottom .view-more a,
+.movie .bottom .view-more a,
+.mail .bottom .view-more a,
+.check .bottom .view-more a{
+    color:#6a6a6a;
+}
+
+/* view-more底線 */
+.fc-news .bottom .view-more::after,
+.movie .bottom .view-more::after,
+.mail .bottom .view-more::after,
+.check .bottom .view-more::after
+{
+    content:'';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 150%;
+    height: 1px;
+    background-color: #999;
+}
+
+/* 觸碰到view-more 就啟用動畫 */
+.fc-news .bottom .view-more:hover::after,
+.movie .bottom .view-more:hover::after,
+.mail .bottom .view-more:hover::after,
+.check .bottom .view-more:hover::after
+{
+    animation: blink .3s alternate ease-in-out;
+}
+
+.fc-news .item{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+.fc-news .item:hover a p {
+    color:#ddc7c7;
+}
+
+/* 最後一個item不用下框線 */
+.fc-news .item:last-child{
+    border-bottom: none;
+    margin-bottom: 40px;
+}
+
+.fc-news .item .date{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.fc-news .item .date .time{
+    position:relative;
+    color:#6a6a6a;
+}
+
+.fc-news .item .date .cate{
+    color:#6a6a6a;
+    margin-left:10px;
+    padding: 1px 3px;
+    background-color: rgba(204, 204, 204,.3);
+}
+.fc-news .item .text p{
+    color:#6a6a6a;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+@media screen and (min-width:992px) {
+    /* 修改padding大小 */
+.fc-news{
+    padding: 105px 160px 160px;
+}
+
+/* 修改成absolute 並移動位置 */
+.fc-news .bottom .view-more,
+.mail .bottom .view-more,
+.check .bottom .view-more{
+    position: absolute;
+    bottom: 50px;
+    right: 1%;
+}
+
+/* 修改「」位置 */
+.fc-news::after{
+    top: -25px;
+    right: -15px;
+}
+
+/* 修改「」位置 */
+.fc-news::before{
+    bottom: -25px;
+    left: -15px;
+}
+
+/* 修改title位置大小 */
+.fc-news .title{
+    left: 80px;
+    font-size: 32px;
+}
+
+
+}
+
+
+/* 輪播 */
+.movie{
+    position: relative;
+    margin-bottom: 200px;
+}
+
+/* 下層白色方塊 */
+.movie::before{
+    content:'';
+    position: absolute;
+    top: 30%;
+    left: -15px;
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+}
+
+/* 控制長度，讓滑鼠在旁邊的灰色區域時，文字不會變色 */
+.control-h{
+    width: 50%;
+}
+
+.movie-slick .content{
+    padding:20px;
+}
+
+.movie-slick .content:hover p:first-child{
+    color:#ddc7c7;
+}
+.movie-slick .content p{
+    width: 250px;
+    /* 強迫文字換行 */
+    word-wrap:break-word;
+    color:#6a6a6a;
+    font-size: 14px;
+    transition: .5s;
+    padding-bottom: 3px;
+}
+
+.movie-slick .content p:first-child{
+    margin-bottom: 7px;
+}
+.movie-slick .content p:last-child{
+    color:#6a6a6a;
+    font-size: 13px;
+    transition: .5s;
+    padding-bottom: 3px;
+}
+
+.movie .text{
+    position: relative;
+    padding: 0 45px;
+}
+
+/* 製作「」  用border*/
+.movie .text::before{
+    content:'';
+    position: absolute;
+    top: -1340%;
+    right: -2%;
+    width: 20px;
+    height: 30px;
+    border-top:1px solid rgba(0,0,0,.3);
+    border-right:1px solid rgba(0,0,0,.3);
+}
+
+/* 製作「」  用border*/
+.movie .text::after{
+    content:'';
+    position: absolute;
+    bottom: -345%;
+    left: 0;
+    width: 20px;
+    height: 30px;
+    border-bottom:1px solid rgba(0,0,0,.3);
+    border-left:1px solid rgba(0,0,0,.3);
+}
+
+
+/* 標題用 absolute 和rorate轉為垂直 */
+.movie .text .title{
+    position: absolute;
+    top: -750%;
+    left: -2%;
+    transform: rotate(90deg);
+    font-size: 19px;
+}
+
+
+
+/* 輪播圖主體 */
+.movie-slick{
+    /* 靠右 */
+    margin: 0 5px 0 45px;
+    margin-bottom:80px;
+} 
+
+.movie-slick img{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width:992px) {
+    /* 消除padding */
+    .movie{
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom:240px;
+    }
+
+    /* 縮小輪播 */
+   .movie-slick{
+    position: relative;
+    width: 80%;
+    height: 70%;
+    margin-bottom: 150px;
+    margin-left: auto;
+    }
+
+
+/* 下層白色方塊 */
+/* 修改大小捍衛置 */
+.movie::before{
+    top: 35%;
+    left: 0;
+    width: 60%;
+    height: 80%;
+}
+
+
+/* 碰到文字，第一個p的內容就變色 */
+.movie-slick .content:hover p:first-child{
+    color:#ddc7c7;
+}
+
+.movie-slick .content p{
+    width: 400px;
+    /* 強迫文字換行 */
+    word-wrap:break-word;
+    color:#6a6a6a;
+    font-size: 16px;
+    padding-bottom: 3px;
+}
+
+
+.movie .text .title{
+    position: absolute;
+    top: -350px;
+    left: 2%;
+    transform: rotate(90deg);
+    font-size: 32px;
+}
+
+.movie .text p{
+    margin-left:10%;
+    margin-bottom: 3px;
+}
+
+.movie .text p a{
+    font-size: 16px;
+}
+
+
+/* 改成absolute 修改view-more位置 */
+.movie .bottom .view-more{
+    position: absolute;
+    bottom: -50px;
+    right: 41%;
+}
+
+/* 修改「」位置 */
+.movie .text::before{
+    top: -665px;
+    width: 30px;
+    height: 40px;
+}
+
+/* 修改「」位置 */
+.movie .text::after{
+    content:'';
+    position: absolute;
+    bottom: -130px;
+    left: -3%;
+    width: 30px;
+    height: 40px;
+}
+
+}
+
+
+.mail,
+.check{
+    /* .container有padding 所以先扣到15 */
+    padding: 50px 35px;
+    margin-bottom: 150px;
+}
+
+.mail .title,
+.check .title{
+    margin-bottom: 15px;
+}
+.mail .text p,
+.check .text p{
+    font-size: 13px;
+    line-height: 1.6rem;
+    margin-bottom: 40px;
+}
+
+.check{
+    margin: 0  15px 0 -15px;
+}
+
+/* 製作「」 */
+.check::after{
+    content:"";
+    position: absolute;
+    top: -25px;
+    right: -15px;
+    width: 30px;
+    height: 40px;
+    border-top:1px solid rgba(0,0,0,.3);
+    border-right:1px solid rgba(0,0,0,.3);
+   
+}
+
+/* 製作「」 */
+.check::before{
+    content:"";
+    position: absolute;
+    bottom: -25px;
+    left: 15px;
+    width: 30px;
+    height: 40px;
+    border-bottom:1px solid rgba(0,0,0,.3);
+    border-left:1px solid rgba(0,0,0,.3);
+}
+
+
+@media screen and (min-width:992px){
+.mail,
+.check{
+    padding: 85px 50px 125px;
+    width: 60%;
+    margin-left:auto;
+}
+
+/* 調整間隔和文字大小並水平置中 */
+.mail .title,
+.check .title{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.mail .text p,
+.check .text p{
+    font-size: 14px;
+}
+
+/* right auto為了讓主體靠左 */
+.check{
+    margin: 0  auto 0 -15px;
+}
+
+/* 修改「」位置 */
+.mail::after{
+    top: -20px;
+    right: -25px;
+
+}
+
+.mail::before{
+    bottom: -25px;
+    left: -20px;
+}
+
+.check::after{
+    top: -25px;
+    right: -20px;
+
+}
+
+.check::before{
+    bottom: -25px;
+    left: -20px;
+}
+
+}
+
+
+/* footer主體 */
+footer{
+    padding: 40px 30px;
+    background:url(./img/bg.png);
+    background-color: #fff;
+}
+
+/* flex讓Supper和+分兩邊 */
+footer .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color:#888888;
+}
+
+/* 平常是隱藏起來，點擊nav時開啟 */
+footer .nav-list{
+    display:none;
+    margin-bottom:30px;
+}
+
+footer .nav-list li{
+    list-style: none;
+    padding-bottom: 10px;
+}
+footer .nav-list li:hover a{
+    color:#a8a8a8;
+}
+
+footer .nav-list li a{
+    color:#6a6a6a;
+    font-size: 14px;
+    transition: .5s;
+}
+
+footer .nav .title{
+    font-size: 16px;
+}
+footer .copyright{
+    color:#6a6a6a;
+    font-size: 11px;
+}
+
+/* 桌機的footer */
+@media screen and (min-width:992px){
+footer{
+    padding: 40px 30px 100px;
+    background-color: #fff;
+}
+
+footer .nav-list ul li{
+    margin-left: 25px;
+    font-size: 12px;
+}
+footer .copyright{
+    margin-left: 25px;
+    font-size: 12px;
+}
+
+
+}

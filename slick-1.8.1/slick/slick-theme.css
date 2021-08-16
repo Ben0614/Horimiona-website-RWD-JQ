@@ -1,0 +1,452 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    z-index:10;
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+    
+    display: block;
+
+    /* 實際的按鈕大小 (點擊後可以跳上下一張的範圍)*/
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+    /* 平時先隱藏 滑鼠觸碰時再顯示 */
+    opacity: 0;
+}
+
+/* 觸碰時顯示按鈕 */
+/* 上方輪播圖 */
+.top-big-slick:hover .slick-prev
+{
+   opacity: 1;
+}
+.top-big-slick:hover .slick-next
+{
+   opacity: 1;
+}
+
+/* 下方輪播圖 */
+.movie-slick:hover .slick-prev
+{
+   opacity: 1;
+}
+.movie-slick:hover .slick-next
+{
+   opacity: 1;
+}
+
+
+/* --------------------------------------------------- */
+
+/* 觸碰到或聚焦到按鈕時，無字無色，無外框線，背景無色 */
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+
+
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+/* 預設的按鈕 */
+/* 是文字類型 */
+ .slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    
+    /* 如果要自訂按鈕樣式就把這個隱藏起來 */
+    /* 大小 顏色 調整 */
+    /* font-size: 20px; */
+    color: transparent;
+
+    opacity: 0.75;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} 
+
+/* 按鈕的位置 */
+.slick-prev
+{
+    left: 0;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 0;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '←';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '→';
+} 
+
+/* 按鈕的位置 */
+.slick-next
+{
+    right: 0;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: 0;
+}
+.slick-next:before
+{
+    content: '→';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '←';
+}
+
+
+@media screen and (min-width:992px){
+        /* Arrows */
+.slick-prev,
+.slick-next
+{
+    transition: .3s;
+     /* 實際的按鈕大小 (點擊後可以跳上下一張的範圍)*/
+    width: 14%;
+    height: 20%;
+    
+}
+
+/* 觸碰箭頭時稍微改變箭頭位置 */
+.top-big-slick .slick-prev:hover{
+    left: -10%
+}
+
+.top-big-slick .slick-next:hover{
+    right: -10%
+}
+
+.movie-slick .slick-prev:hover{
+    left: -8%
+}
+
+.movie-slick .slick-next:hover{
+    right: -8%
+}
+
+
+/* 自製箭頭樣式和位置  */
+ .slick-prev::before{
+    display:block;
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0,0,0,.3);
+    transition: .5s;
+}
+
+/* 自製箭頭樣式和位置  */
+.slick-prev::after{
+    display:block;
+    content:'';
+    position: absolute;
+    top: 43%;
+    left: -3px;
+    transform: rotate(135deg);
+    width: 20%;
+    height: 2px;
+    background-color: rgba(0,0,0,.3);
+    transition: .5s;
+}
+
+/* 自製箭頭樣式和位置  */
+.slick-next::before{
+    display:block;
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0,0,0,.3);
+    transition: .5s;
+    
+}
+
+/* 自製箭頭樣式和位置  */
+.slick-next::after{
+    display:block;
+    content:'';
+    position: absolute;
+    top: 43%;
+    right: -3px;
+    transform: rotate(45deg);
+    width: 20%;
+    height: 2px;
+    background-color: rgba(0,0,0,.3);
+    transition: .5s;
+}
+
+
+/* 箭頭位置 */
+.slick-prev
+{
+    left: -60px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -60px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '←';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '→';
+} 
+
+.slick-next
+{
+    right: -60px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: -60px;
+}
+.slick-next:before
+{
+    content: '→';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '←';
+}
+
+}
+
+
+/* --------------------------------- */
+
+/* 點的區域 */
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 200px;
+}
+
+/* 主體 */
+.slick-dots
+{
+    position: absolute;
+    /* 點的位置 */
+    top: -44%;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(90deg);
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+/* 包覆著每個點的li，調整寬度會讓每個點之間的間隔變大 */
+/* 大小基本上和點的大小相同 */
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 15px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+/* 調整h和padding會影響整體點的位置 */
+/* 基本上不用動 */
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 400px;
+    height: 15px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+/* 觸碰時沒有外邊線 */
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+
+/* 點的樣式 */
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    /* 不想用預設的點樣式就把fz和color調整 */
+    /* font-size: 6px; */
+    color: transparent;
+
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* 調整點的顏色和大小 */
+    /* 大小基本上和li一致 */
+    background-color: black;
+    width: 20px;
+    height: 1px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 不須調整 */
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
+} 
+
+@media screen and (min-width: 992px) {
+.slick-dots
+{
+    top: -61%;
+}
+
+.slick-dots li
+{
+    width: 35px;
+}
+
+
+.slick-dots li button:before
+{
+    width: 35px;
+    height: 1px;
+}
+
+}
+
+
+.top-big-slick .slick-dots
+{
+    top: 100%;
+    left: -43%;
+    transform:rotate(0);
+   
+}
+
+ .top-big-slick .slick-dots li
+{
+    width: 35px;
+    height: 20px;
+}
+
+
+.movie .slick-dotted.slick-slider
+{
+    margin-bottom:0px;
+}
+
+.movie-slick .slick-list a img{
+    opacity: 1;
+    transition:.5s;
+}
+
+/* 觸碰到圖片時 圖片顏色變淡 */
+.movie-slick .slick-list a img:hover{
+    opacity: .7;
+}
+
+
+
+
+
+
+
