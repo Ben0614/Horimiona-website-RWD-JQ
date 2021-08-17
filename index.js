@@ -104,11 +104,11 @@ $(function () {
         if ($(document).scrollTop() >= movieTop - 1400) {
             $('.movie').fadeIn(1000);
             $('.movie').css('transform', 'translateY(-70px)');
-            $('.movie').css('transition', '0.1s');
+            $('.movie').css('transition', '1s');
         } else {
             $('.movie').fadeOut(1000);
             $('.movie').css('transform', 'translateY(0)');
-            $('.movie').css('transition', '0.1s');
+            $('.movie').css('transition', '1s');
         }
 
         if ($(document).scrollTop() >= carouselTop - 700) {
