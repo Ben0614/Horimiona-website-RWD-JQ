@@ -51,7 +51,7 @@ body{
 
 /* 上區塊右下角的線 */
 .aside-line{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 5%;
     width: 1px;
@@ -276,7 +276,7 @@ header .hum-list p a{
 .carousel{
     position:relative;
     margin: 0 30px;
-    margin-bottom:130px;
+    margin-bottom:200px;
 }
 
 /* 下層灰色方塊 */
@@ -319,7 +319,7 @@ header .hum-list p a{
     position: relative;
     padding: 45px 25px;
     z-index: 10;
-    margin-bottom:80px;
+    margin-bottom:130px;
 }
 
 /* 上層白色方塊 */

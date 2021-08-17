@@ -70,126 +70,162 @@ $(function () {
     $(window).scroll(function () {
         if ($(document).scrollTop() >= 400) {
             $('header .logo').slideUp(200);
-            $('.navbar').css('transform', 'translateY(-70px)');
+            // 設置多個css ({})
+            $('.navbar').css({ 'transform': 'translateY(-70px)', 'font-size': '14px'});
             $('.navbar').css('transition', '.5s');
         } else {
             $('header .logo').slideDown(200);
-            $('.navbar').css('transform', 'translateY(0)');
+            $('.navbar').css({ 'transform': 'translateY(0)', 'font-size': '16px' });
             $('.navbar').css('transition', '.5s');
         }
     })
 
 
-    // 獲取區塊與頁面頂部的距離
-    let big_slickTop = $('.top-big-slick').offset().top;
-    let carouselTop = $('.carousel').offset().top;
-    let newsTop = $('.news').offset().top;
-    let scheduleTop = $('.schedule').offset().top;
-    let anoimTop = $('.anoim').offset().top;
-    let fc_newsTop = $('.fc-news').offset().top;
-    let movieTop = $('.movie').offset().top;
-    let mailTop = $('.mail').offset().top;
-    let checkTop = $('.check').offset().top;
-
-    // 如果頁面滾動到該距離，就讓該區塊往上淡入
-    // 反之則隱藏
+    // 如果頁面滾動到該區塊的上方，就讓該區塊往上淡入
+    // 反之則淡出
+    // $(document).scrollTop() 頁面被捲去部分的高度
+    // $(window).height() 頁面可視區域的高度
     $(window).scroll(function () {
         // 上方右下角的垂直線，頁面一滾動就淡出
         if ($(document).scrollTop() >= 1) {
-            $('.aside-line').fadeOut(.3);
+            $('.aside-line').fadeOut(100);
         } else {
-            $('.aside-line').fadeIn(.3);
+            $('.aside-line').fadeIn(100);
         }
+        
 
-        if ($(document).scrollTop() >= movieTop - 1400) {
-            $('.movie').fadeIn(1000);
-            $('.movie').css('transform', 'translateY(-70px)');
-            $('.movie').css('transition', '1s');
-        } else {
-            $('.movie').fadeOut(1000);
-            $('.movie').css('transform', 'translateY(0)');
-            $('.movie').css('transition', '1s');
-        }
+        // 為每個區塊添加class="up-area" 
+        // 添加時要注意 不要命名成已經有的class
+        // 然後迴圈這些區塊
+        $('.up-area').each(function () {
+            // 頁面被捲去部分的高度 + 頁面可視區域的高度>=該區塊距離頁面頂端的高度
+            if ($(document).scrollTop() + $(window).height() >= $(this).offset().top) {
+                $(this).fadeIn(1000);
+                $(this).css('transform', 'translateY(-70px)');
+                $(this).css('transition', '1s');
+            } else {
+                $(this).fadeOut(1000);
+                $(this).css('transform', 'translateY(0)');
+                $(this).css('transition', '1s');
+            }
 
-        if ($(document).scrollTop() >= carouselTop - 700) {
-            $('.carousel').fadeIn(1000);
-            $('.carousel').css('transform', 'translateY(-70px)');
-            $('.carousel').css('transition', '1s');
-        } else {
-            $('.carousel').fadeOut(1000);
-            $('.carousel').css('transform', 'translateY(0)');
-            $('.carousel').css('transition', '1s');
-        }
+        })
 
-        if ($(document).scrollTop() >= big_slickTop - 900) {
-            $('.top-big-slick').fadeIn(1000);
-            $('.top-big-slick').css('transform', 'translateY(-70px)');
-            $('.top-big-slick').css('transition', '1s');
-        } else {
-            $('.top-big-slick').fadeOut(1000);
-            $('.top-big-slick').css('transform', 'translateY(0)');
-            $('.top-big-slick').css('transition', '1s');
-        }
+        // 有添加up-area的區塊
+        // top - big - slick
+        // carousel
+        // news
+        // schedule
+        // anoim
+        // fc-news
+        // movie
+        // mail
+        // check
 
-        if ($(document).scrollTop() >= newsTop - 900) {
-            $('.news').fadeIn(1000);
-            $('.news').css('transform', 'translateY(-70px)');
-            $('.news').css('transition', '1s');
-        } else {
-            $('.news').fadeOut(1000);
-            $('.news').css('transform', 'translateY(0)');
-            $('.news').css('transition', '1s');
-        }
+        
 
-        if ($(document).scrollTop() >= scheduleTop - 900) {
-            $('.schedule').fadeIn(1000);
-            $('.schedule').css('transform', 'translateY(-70px)');
-            $('.schedule').css('transition', '1s');
-        } else {
-            $('.schedule').fadeOut(1000);
-            $('.schedule').css('transform', 'translateY(0)');
-            $('.schedule').css('transition', '1s');
-        }
+        // 複雜的寫法
 
-        if ($(document).scrollTop() >= anoimTop - 900) {
-            $('.anoim').fadeIn(1000);
-            $('.anoim').css('transform', 'translateY(-70px)');
-            $('.anoim').css('transition', '1s');
-        } else {
-            $('.anoim').fadeOut(1000);
-            $('.anoim').css('transform', 'translateY(0)');
-            $('.anoim').css('transition', '1s');
-        }
+        // 獲取區塊與頁面頂部的距離
+        // let top_big_slickTop = $('.top-big-slick').offset().top;
+        // let carouselTop = $('.carousel').offset().top;
+        // let newsTop = $('.news').offset().top;
+        // let scheduleTop = $('.schedule').offset().top;
+        // let anoimTop = $('.anoim').offset().top;
+        // let fc_newsTop = $('.fc-news').offset().top;
+        // let movieTop = $('.movie').offset().top;
+        // let mailTop = $('.mail').offset().top;
+        // let checkTop = $('.check').offset().top;
 
-        if ($(document).scrollTop() >= fc_newsTop - 900) {
-            $('.fc-news').fadeIn(1000);
-            $('.fc-news').css('transform', 'translateY(-70px)');
-            $('.fc-news').css('transition', '1s');
-        } else {
-            $('.fc-news').fadeOut(1000);
-            $('.fc-news').css('transform', 'translateY(0)');
-            $('.fc-news').css('transition', '1s');
-        }
+        // if ($(document).scrollTop() + $(window).height() >= carouselTop) {
+        //     $('.carousel').fadeIn(1000);
+        //     $('.carousel').css('transform', 'translateY(-70px)');
+        //     $('.carousel').css('transition', '1s');
+        // } else {
+        //     $('.carousel').fadeOut(1000);
+        //     $('.carousel').css('transform', 'translateY(0)');
+        //     $('.carousel').css('transition', '1s');
+        // }
 
-        if ($(document).scrollTop() >= mailTop - 900) {
-            $('.mail').fadeIn(1000);
-            $('.mail').css('transform', 'translateY(-70px)');
-            $('.mail').css('transition', '1s');
-        } else {
-            $('.mail').fadeOut(1000);
-            $('.mail').css('transform', 'translateY(0)');
-            $('.mail').css('transition', '1s');
-        }
+        // if ($(document).scrollTop() + $(window).height() >= top_big_slickTop) {
+        //     $('.top-big-slick').fadeIn(1000);
+        //     $('.top-big-slick').css('transform', 'translateY(-70px)');
+        //     $('.top-big-slick').css('transition', '1s');
+        // } else {
+        //     $('.top-big-slick').fadeOut(1000);
+        //     $('.top-big-slick').css('transform', 'translateY(0)');
+        //     $('.top-big-slick').css('transition', '1s');
+        // }
 
-        if ($(document).scrollTop() >= checkTop - 900) {
-            $('.check').fadeIn(1000);
-            $('.check').css('transform', 'translateY(-70px)');
-            $('.check').css('transition', '1s');
-        } else {
-            $('.check').fadeOut(1000);
-            $('.check').css('transform', 'translateY(0)');
-            $('.check').css('transition', '1s');
-        }
+        // if ($(document).scrollTop() + $(window).height() >= newsTop) {
+        //     $('.news').fadeIn(1000);
+        //     $('.news').css('transform', 'translateY(-70px)');
+        //     $('.news').css('transition', '1s');
+        // } else {
+        //     $('.news').fadeOut(1000);
+        //     $('.news').css('transform', 'translateY(0)');
+        //     $('.news').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= scheduleTop) {
+        //     $('.schedule').fadeIn(1000);
+        //     $('.schedule').css('transform', 'translateY(-70px)');
+        //     $('.schedule').css('transition', '1s');
+        // } else {
+        //     $('.schedule').fadeOut(1000);
+        //     $('.schedule').css('transform', 'translateY(0)');
+        //     $('.schedule').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= anoimTop) {
+        //     $('.anoim').fadeIn(1000);
+        //     $('.anoim').css('transform', 'translateY(-70px)');
+        //     $('.anoim').css('transition', '1s');
+        // } else {
+        //     $('.anoim').fadeOut(1000);
+        //     $('.anoim').css('transform', 'translateY(0)');
+        //     $('.anoim').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= fc_newsTop) {
+        //     $('.fc-news').fadeIn(1000);
+        //     $('.fc-news').css('transform', 'translateY(-70px)');
+        //     $('.fc-news').css('transition', '1s');
+        // } else {
+        //     $('.fc-news').fadeOut(1000);
+        //     $('.fc-news').css('transform', 'translateY(0)');
+        //     $('.fc-news').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= movieTop) {
+        //     $('.movie').fadeIn(1000);
+        //     $('.movie').css('transform', 'translateY(-70px)');
+        //     $('.movie').css('transition', '1s');
+        // } else {
+        //     $('.movie').fadeOut(1000);
+        //     $('.movie').css('transform', 'translateY(0)');
+        //     $('.movie').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= mailTop) {
+        //     $('.mail').fadeIn(1000);
+        //     $('.mail').css('transform', 'translateY(-70px)');
+        //     $('.mail').css('transition', '1s');
+        // } else {
+        //     $('.mail').fadeOut(1000);
+        //     $('.mail').css('transform', 'translateY(0)');
+        //     $('.mail').css('transition', '1s');
+        // }
+
+        // if ($(document).scrollTop() + $(window).height() >= checkTop) {
+        //     $('.check').fadeIn(1000);
+        //     $('.check').css('transform', 'translateY(-70px)');
+        //     $('.check').css('transition', '1s');
+        // } else {
+        //     $('.check').fadeOut(1000);
+        //     $('.check').css('transform', 'translateY(0)');
+        //     $('.check').css('transition', '1s');
+        // }
 
     })
 
