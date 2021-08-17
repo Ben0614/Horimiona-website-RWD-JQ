@@ -42,13 +42,6 @@ img{
     max-width: 100%;
 }
 
-
-body{
-    background: url(./img/bg.png);
-    background-color: #fdfdfd;
-    
-}
-
 /* 上區塊右下角的線 */
 .aside-line{
     position: fixed;
@@ -72,7 +65,7 @@ body{
 .area-official{
     background: url(./img/bg.png);
     background-color: #fdfdfd;
-    
+    padding-bottom: 130px;
 }
 
 header{
@@ -87,6 +80,11 @@ header .hum-list .logo{
 }
 
 @media screen and (min-width:992px){
+
+    .area-official{
+    padding-bottom: 200px;
+}
+
     .anoim-area{
     background: url(./img/bg.png);
     background-color: #efefef;
@@ -314,12 +312,15 @@ header .hum-list p a{
     margin-left:auto;
 }
 
+.news{
+    margin-bottom:130px;
+}
+
 .news,
 .schedule{
     position: relative;
     padding: 45px 25px;
     z-index: 10;
-    margin-bottom:130px;
 }
 
 /* 上層白色方塊 */
@@ -451,7 +452,6 @@ header .hum-list p a{
 
 .schedule{
     position: relative;
-    margin-bottom: 150px;
 }
 
 /* 上層白色區塊 */
@@ -547,11 +547,13 @@ header .hum-list p a{
 
 @media screen and (min-width: 992px) {
     /* 修改樣式 */
+    .news{
+    margin-bottom: 200px;
+}
     .news,
     .schedule{
     width: 80%;
     padding: 70px 60px;
-    margin-bottom: 200px;
 }
 
 .news .top h2,
