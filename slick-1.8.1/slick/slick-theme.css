@@ -163,7 +163,12 @@
      /* 實際的按鈕大小 (點擊後可以跳上下一張的範圍)*/
     width: 14%;
     height: 20%;
-    
+}
+
+.movie-slick .slick-prev,
+.movie-slick .slick-next
+{
+    transform:translateY(-70%);
 }
 
 /* 觸碰箭頭時稍微改變箭頭位置 */
