@@ -1178,6 +1178,10 @@ footer .nav{
     color:#888888;
 }
 
+footer .nav .more{
+    font-size: 20px;
+}
+
 /* 平常是隱藏起來，點擊nav時開啟 */
 footer .nav-list{
     display:none;

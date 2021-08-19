@@ -53,13 +53,16 @@ $(function () {
 
     // 手機
     // 點擊後讓footer的選單list顯示
+    // 讓more裡面的+和-切換
     $('.nav').click(function () {
         menuOpened = !menuOpened;
 
         if (menuOpened == true) {
             $('.nav-list').stop().slideToggle();
+            $('.nav .more').html('-');
         } else {
             $('.nav-list').stop().slideToggle();
+            $('.nav .more').html('+');
         }
 
     })
