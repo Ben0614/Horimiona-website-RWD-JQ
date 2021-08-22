@@ -5,6 +5,18 @@
     font-family: 'Ibarra Real Nova','Crimson Text',Arial, Helvetica, sans-serif;
 }
 
+/* 頁面載入中 */
+#preloader {
+    /*  蓋住畫面的背景色 */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    background-color: #f4f4f4;
+    z-index: 3000;
+}
+
 /* view-more的動畫 */
 @keyframes blink {
     0% {
@@ -214,10 +226,13 @@ header .hum-list p a{
     margin-left:-15px;
 }
 
+/* 剛載入時讓圖片opacity從0-1 */
+@keyframes change-o{
+    0%{opacity:0}
+    100%{opacity:1}
+}
+
 @media screen and (min-width:992px){
-/* header .hum-list{
-    display:none;
-} */
 
     /* 調整大圖位置 */
     .portrait-pic{

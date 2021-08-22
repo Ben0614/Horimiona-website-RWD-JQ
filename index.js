@@ -2,6 +2,15 @@
 let menuOpened = false;
 
 $(function () {
+    // 頁面加載中
+    $('#preloader').delay(1500).slideUp(1000);
+
+    // 讓圖片opacity從0-1
+    // 第一個1.5是動畫完成時間
+    // 第二個1.5是動畫開始時間(delay) 與頁面加載時間相同
+    $('.portrait-pic').css('animation', 'change-o 1.5s 1.5s linear')
+
+
     // 上方輪播
     $('.top-big-slick').slick({
         dots: true,
@@ -74,11 +83,17 @@ $(function () {
         if ($(document).scrollTop() >= 400) {
             $('header .logo').slideUp(200);
             // 設置多個css ({})
-            $('.navbar').css({ 'transform': 'translateY(-70px)', 'font-size': '14px'});
+            $('.navbar').css({
+                'transform': 'translateY(-70px)',
+                'font-size': '14px'
+            });
             $('.navbar').css('transition', '.5s');
         } else {
             $('header .logo').slideDown(200);
-            $('.navbar').css({ 'transform': 'translateY(0)', 'font-size': '16px' });
+            $('.navbar').css({
+                'transform': 'translateY(0)',
+                'font-size': '16px'
+            });
             $('.navbar').css('transition', '.5s');
         }
     })
@@ -95,7 +110,7 @@ $(function () {
         } else {
             $('.aside-line').fadeIn(100);
         }
-        
+
 
         // 為每個區塊添加class="up-area" 
         // 添加時要注意 不要命名成已經有的class
@@ -125,7 +140,7 @@ $(function () {
         // mail
         // check
 
-        
+
 
         // 複雜的寫法
 
